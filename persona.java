@@ -53,3 +53,23 @@ public class Persona extends Application {
 
             root.getChildren().addAll(new Label("Part " + (i+1) + ":"), buttons[i], labels[i]);
         }
+
+        Button generateBtn = new Button(" AWAKEN YOUR STORY ");
+        generateBtn.setStyle("-fx-background-color: #ff00aa; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 15px;");
+
+        Label storyLabel = new Label();
+        storyLabel.setWrapText(true);
+        storyLabel.setStyle("-fx-text-fill: #e0e0ff; -fx-font-size: 15px;");
+
+        generateBtn.setOnAction(e -> {
+            if (java.util.Arrays.asList(selections).contains(null)) {
+                storyLabel.setText("You must choose all 5 fates before awakening your Persona...");
+            } else {
+                String story = "In the shadows of Tokyo, " + selections[0] + " " + selections[1] + 
+                              " within " + selections[2] + ". Wielding " + selections[3] + 
+                              ", they embraced the power of the " + selections[4] + " Arcana.";
+                storyLabel.setText(story);
+            }
+        });
+
+        root.getChildren().addAll(generateBtn, storyLabel);
