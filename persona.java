@@ -73,3 +73,14 @@ public class Persona extends Application {
         });
 
         root.getChildren().addAll(generateBtn, storyLabel);
+
+        Scene scene = new Scene(root, 520, 680);
+        stage.setTitle("Persona Story Generator");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
