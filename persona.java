@@ -30,3 +30,11 @@ public class Persona extends Application {
 
         Label subtitle = new Label("Choose your fate... The Velvet Room is calling.");
         subtitle.setStyle("-fx-text-fill: #a0ffff; -fx-font-size: 14px;");
+
+        Button[] buttons = new Button[5];
+        Label[] labels = new Label[5];
+
+        for (int i = 0; i < 5; i++) {
+            final int index = i;
+            buttons[i] = new Button("Arcana " + (i + 1));
+            labels[i] = new Label("---");
