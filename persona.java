@@ -18,3 +18,15 @@ public class Persona extends Application {
     };
 
     private final String[] selections = new String[5];
+    //i know the style isn't good practice
+    @Override
+    public void start(Stage stage) {
+        VBox root = new VBox(15);
+        root.setPadding(new Insets(20));
+        root.setStyle("-fx-background-color: #0f0f1e; -fx-font-family: 'Segoe UI';");
+
+        Label title = new Label("PERSONA AWAKENING");
+        title.setStyle("-fx-font-size: 28px; -fx-text-fill: #ff00aa; -fx-font-weight: bold;");
+
+        Label subtitle = new Label("Choose your fate... The Velvet Room is calling.");
+        subtitle.setStyle("-fx-text-fill: #a0ffff; -fx-font-size: 14px;");
