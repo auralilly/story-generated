@@ -38,3 +38,18 @@ public class Persona extends Application {
             final int index = i;
             buttons[i] = new Button("Arcana " + (i + 1));
             labels[i] = new Label("---");
+
+            buttons[i].setStyle("-fx-background-color: #1a0033; -fx-text-fill: #00ffff; -fx-border-color: #ff00aa; -fx-border-width: 2; -fx-padding: 12px;");
+
+            buttons[i].setOnAction(e -> {
+                if (selections[index] == null) {
+                    selections[index] = options[index][0];
+                } else {
+                    int pos = java.util.Arrays.asList(options[index]).indexOf(selections[index]);
+                    selections[index] = options[index][(pos + 1) % options[index].length];
+                }
+                labels[index].setText(selections[index]);
+            });
+
+            root.getChildren().addAll(new Label("Part " + (i+1) + ":"), buttons[i], labels[i]);
+        }
