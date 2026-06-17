@@ -74,3 +74,32 @@
     ];
 
     let selections = ["", "", "", "", ""];
+
+    function cycle(index) {
+      let current = options[index].indexOf(selections[index]);
+      if (current === -1) current = 0;
+      else current = (current + 1) % options[index].length;
+      
+      selections[index] = options[index][current];
+      document.getElementById(`choice${index}`).textContent = selections[index];
+    }
+
+    function showStory() {
+      if (selections.includes("")) {
+        document.getElementById("story").innerHTML = "<p style='color:#ff00aa;'>You must choose all 5 fates before awakening...</p>";
+        return;
+      }
+
+      const story = `
+        In the shadows of Tokyo, <strong>${selections[0]}</strong> 
+        <strong>${selections[1]}</strong> within 
+        <strong>${selections[2]}</strong>. 
+        Wielding <strong>${selections[3]}</strong>, 
+        they embraced the power of <strong>${selections[4]}</strong> Arcana.
+      `;
+
+      document.getElementById("story").innerHTML = `<h2>Your Persona Story:</h2><p>${story}</p>`;
+    }
+  </script>
+</body>
+</html>
